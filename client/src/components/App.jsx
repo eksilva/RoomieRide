@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import FacebookLogin from 'react-facebook-login';
 
-export default class Login extends Component {
+import Home from './Home.jsx';
+
+export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -10,7 +12,6 @@ export default class Login extends Component {
       name: '',
       email: '',
       picture: '',
-
     }
 
     this.responseFacebook = this.responseFacebook.bind(this);
@@ -19,7 +20,6 @@ export default class Login extends Component {
 
   responseFacebook(response) {
     console.log(response);
-
     this.setState({
       isLoggedIn: true,
       userID: response.userID,
@@ -27,7 +27,6 @@ export default class Login extends Component {
       email: response.email,
       picture: response.picture.data.url,
     });
-    
   }
 
   componentClicked() {
@@ -38,11 +37,8 @@ export default class Login extends Component {
     let fbContent; 
 
     if (this.state.isLoggedIn) {
-      fbContent = (
-        <div>
-          <img src={this.state.picture} alt={this.state.name} />
-          <h2>Welcome, {this.state.name}</h2>
-        </div>
+      return (
+        <Home userInfo={this.state} />
       )
     } else {
       fbContent = (
@@ -54,12 +50,12 @@ export default class Login extends Component {
           callback={this.responseFacebook}     
         />
       )
+      return (
+        <div>
+          <h1>Roomie Ride</h1>
+          {fbContent}
+        </div>
+      )
     }
-    return (
-      <div>
-        <h1>Roomie Ride</h1>
-        {fbContent}
-      </div>
-    )
   }
 }
