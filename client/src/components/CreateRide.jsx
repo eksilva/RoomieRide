@@ -10,12 +10,28 @@ class CreateRide extends React.Component {
       seats: ''
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleChange(event) {
     this.setState({
       [event.target.id]: event.target.value,
     })
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+
+    const rideInfo = {
+      destination: this.state.destination,
+      departure: this.state.departure,
+      seats: this.state.seats
+    };
+
+    let pack = [rideInfo];
+    
+    console.log(JSON.stringify(pack));
+    this.props.createRide(event);
   }
 
   render() {
