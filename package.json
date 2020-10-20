@@ -1,7 +1,6 @@
 {
   "name": "roomie-ride",
   "version": "1.0.0",
-  "description": "",
   "main": "bundle.js",
   "scripts": {
     "build": "webpack -d --watch",
@@ -37,5 +36,6 @@
     "@babel/preset-react": "^7.10.4",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
-  }
+  },
+  "description": ""
 }
