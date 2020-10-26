@@ -1,28 +1,21 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
+import Button from 'react-bootstrap/Button';
 
-import CreateRide from './CreateRide.jsx';
+// import CreateRide from './CreateRide.jsx';
 
 const Home = ({ userInfo }) => {
-  const [create, setCreate] = useState(false);
-
-  function createRide(event) {
-    event.preventDefault();
-    setCreate(!create);
-  }
-
-  if(!create) {
-    return (
-      <div>
-        <img src={userInfo.picture} alt={userInfo.name} />
-        <p>Welcome, {userInfo.name}!</p>
-        <button onClick={createRide}>Create Ride Invite</button>
-      </div>
-    )
-  } else {
-    return (
-      <CreateRide createRide={createRide} />
-    )
-  }
+  return (
+    <div>
+      <Img src={userInfo.picture} alt={userInfo.name} />
+      <p>Welcome, {userInfo.name}!</p>
+    </div>
+  )
 }
+
+const Img = styled.img`
+  width: 80px;
+  height: 80px
+`;
 
 export default Home;
