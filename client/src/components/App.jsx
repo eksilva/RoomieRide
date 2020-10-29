@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
-import FacebookLogin from 'react-facebook-login';
+import styled from 'styled-components';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import Home from './Home.jsx';
 import LoginButton from './LoginButton.jsx';
+
+import Nav from './Nav.jsx';
+import CreateRide from './CreateRide.jsx';
+import UpcomingRides from './UpcomingRides.jsx';
 
 export default class App extends Component {
   constructor(props) {
@@ -31,12 +35,28 @@ export default class App extends Component {
   render() {
     if (!this.state.isLoggedIn) {
       return (
-        <LoginButton onLogin={this.onLogin}/>
+        <Centered>
+          <h1>Roomie Ride</h1>
+          <LoginButton onLogin={this.onLogin}/>
+        </Centered>
       )
     } else {
       return (
-        <Home userInfo={this.state.userInfo} />
+        <Router>
+          <Centered>
+            <Nav userInfo={this.state.userInfo} />
+            <Switch>
+              <Route path='/CreateRide' component={CreateRide}/>
+              <Route path='/ViewRides' component={UpcomingRides}/>
+            </Switch>
+          </Centered>
+        </Router>
       )
     }
   }
 }
+
+const Centered = styled.div`
+  display: grid;
+  place-items: center;
+`;
