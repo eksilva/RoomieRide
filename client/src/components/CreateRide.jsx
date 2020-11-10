@@ -1,5 +1,7 @@
 import React from 'react';
+import moment from 'moment';
 import styled from 'styled-components';
+import Button from '@material-ui/core/Button';
 
 class CreateRide extends React.Component {
   constructor(props) {
@@ -7,9 +9,9 @@ class CreateRide extends React.Component {
   
     this.state = {
       destination: '',
-      time: '09:00',
-      date: '2020-11-03',
-      seats: '',
+      time: '',
+      date: '',
+      seats: 0,
       invitees: []
     };
     this.clearForm = this.clearForm.bind(this);
@@ -17,13 +19,27 @@ class CreateRide extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    let currentDate = moment().format('YYYY[-]MM[-]DD');
+    let currentTime = moment().format('HH:mm');
+  
+    this.setState({
+      time: currentTime,
+      date: currentDate,
+    });
+  }
+
   clearForm() {
+    let currentDate = moment().format('YYYY[-]MM[-]DD');
+    let currentTime = moment().format('HH:mm');
+  
     this.setState({
       destination: '',
-      time: '09:00',
-      date: '2020-11-03',
-      seats: ''
-    })
+      time: currentTime,
+      date: currentDate,
+      seats: 0,
+      invitees: []
+    });
   }
 
   handleChange(event) {
@@ -59,33 +75,46 @@ class CreateRide extends React.Component {
   render() {
     return (
       <Form onSubmit={this.handleSubmit} >
-        <label htmlFor='destination' >Destination</label>
-        <input type='text' id='destination' required={true} onChange={this.handleChange} value={this.state.destination} />
+        <Label htmlFor='destination' >Destination</Label>
+        <input type='text' id='destination' required={true} onChange={this.handleChange} value={this.state.destination} required/>
 
-        <label htmlFor='time' >Time</label>
-        <input type='time' id='time' onChange={this.handleChange} value={this.state.time} />
+        <Label htmlFor='time' >Time</Label>
+        <input type='time' id='time' onChange={this.handleChange} value={this.state.time} required/>
 
-        <label htmlFor='date' >Date</label>
-        <input type='date' id='date' onChange={this.handleChange} value={this.state.date} />
+        <Label htmlFor='date' >Date</Label>
+        <input type='date' id='date' onChange={this.handleChange} value={this.state.date} required/>
 
-        <label htmlFor='seats' >Free Seats</label>
-        <input type='' id='seats' onChange={this.handleChange} value={this.state.seats} />
+        <Label htmlFor='seats' >Free Seats</Label>
+        <input type='number' min='0' id='seats' onChange={this.handleChange} value={this.state.seats} required/>
 
-        <label htmlFor='invitees' >Free Seats</label>
-        <input type='' id='invitees' onChange={this.handleChange} value={this.state.invitees} />
+        <Label htmlFor='invitees' >Invitees</Label>
+        <input type='' id='invitees' onChange={this.handleChange} value={this.state.invitees} required/>
 
-        <div>
-          <button type='button' onClick={this.clearForm}>Clear</button>
-          <button type='submit'>Send Invite</button>
-        </div>
+        <ButtonDiv>
+          <Button type='button' size='small' variant='contained' color='secondary' onClick={this.clearForm}>Clear</Button>
+          <Button type='submit' size='small' variant= 'contained' color='primary'>Send Invite</Button>
+        </ButtonDiv>
       </Form>
     )
   }
 }
 
+const ButtonDiv = styled.div`
+  margin-top: 10px;
+`;
+
+const Label = styled.label`
+  margin-top: 10px;
+  margin-bottom: 4px;
+  margin-left: -20px;
+`;
+
 const Form = styled.form`
+  font-size: 1.2em;
   display: flex;
   flex-direction: column;
+  margin-top: 10px;
+  padding-bottom: 20px;
 `;
 
 export default CreateRide;

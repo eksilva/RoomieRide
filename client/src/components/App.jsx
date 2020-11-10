@@ -19,7 +19,7 @@ export default class App extends Component {
   }
 
   onLogin(data) {
-    // console.log(data);
+    console.log(data);
     let userData = {
       userID: data.userID,
       name: data.name,
@@ -57,6 +57,16 @@ export default class App extends Component {
 }
 
 const Centered = styled.div`
+  font-family: 'Crimson Text', serif;
+  color: white;
+  background-color: #370f95;
+  box-shadow: 2px 2px 10px grey, 
+             -2px -2px 10px grey;
+  border: 6px solid #4c00ff;
   display: grid;
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-top: 5%;
+  padding-bottom: 1%;
   place-items: center;
 `;
