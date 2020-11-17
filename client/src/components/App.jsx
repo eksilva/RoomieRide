@@ -36,7 +36,7 @@ export default class App extends Component {
     if (!this.state.isLoggedIn) {
       return (
         <Centered>
-          <h1>Roomie Ride</h1>
+          <H1>Roomie Ride</H1>
           <LoginButton onLogin={this.onLogin}/>
         </Centered>
       )
@@ -44,6 +44,7 @@ export default class App extends Component {
       return (
         <Router>
           <Centered>
+            <H1>Roomie Ride</H1>
             <Nav userInfo={this.state.userInfo} />
             <Switch>
               <Route path='/CreateRide' component={CreateRide}/>
@@ -56,17 +57,19 @@ export default class App extends Component {
   }
 }
 
+const H1 = styled.p`
+  font-size: 3em;
+  font-weight: bold;
+`;
+
 const Centered = styled.div`
-  font-family: 'Crimson Text', serif;
+  font-family: '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif', '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"';
   color: white;
-  background-color: #370f95;
+  background-color: #391c7d;
   box-shadow: 2px 2px 10px grey, 
              -2px -2px 10px grey;
-  border: 6px solid #4c00ff;
   display: grid;
-  margin-left: 25%;
-  margin-right: 25%;
-  margin-top: 5%;
+  margin: auto;
   padding-bottom: 1%;
   place-items: center;
 `;

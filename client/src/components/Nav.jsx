@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Button from '@material-ui/core/Button';
+import Fab from '@material-ui/core/Fab';
+import Grid from '@material-ui/core/Grid'
 import styled from 'styled-components';
 
 const Nav = (props) => {
@@ -9,12 +10,19 @@ const Nav = (props) => {
       <Img src={props.userInfo.picture} alt={props.userInfo.name} />
       <p>Welcome, {props.userInfo.name}!</p>
       <nav>
-        <Link to='/CreateRide'>
-          <Button variant="contained" color="primary">Create Ride Invite</Button>
-        </Link>
-        <Link to='/ViewRides'>
-          <Button variant="contained" color="primary">View Upcoming Rides</Button>
-        </Link>
+        <Grid container spacing={2}>
+          <Grid item>
+            <Link to='/CreateRide'>
+              <Fab variant="contained" color="primary">Create Ride Invite</Fab>
+            </Link>
+          </Grid>
+          <Grid item>
+            <Link to='/ViewRides'>
+              <Fab variant="contained" color="primary">View Upcoming Rides</Fab>
+            </Link>
+          
+          </Grid>
+        </Grid>
       </nav>
     </Centered>
   )
@@ -23,7 +31,7 @@ const Nav = (props) => {
 const Img = styled.img`
   width: 80px;
   height: 80px;
-  border: 3px solid #4c00ff;
+  border: 3px solid #3f51b5;
   border-radius: 40px;
 `;
 

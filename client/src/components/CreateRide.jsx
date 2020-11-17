@@ -2,6 +2,8 @@ import React from 'react';
 import moment from 'moment';
 import styled from 'styled-components';
 import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
+import TextField from '@material-ui/core/TextField';
 
 class CreateRide extends React.Component {
   constructor(props) {
@@ -77,6 +79,7 @@ class CreateRide extends React.Component {
       <Form onSubmit={this.handleSubmit} >
         <Label htmlFor='destination' >Destination</Label>
         <input type='text' id='destination' required={true} onChange={this.handleChange} value={this.state.destination} required/>
+        {/* <TextField id="standard-basic" id='destination' required onChange={this.handleChange} value={this.state.destination} label="Destination" /> */}
 
         <Label htmlFor='time' >Time</Label>
         <input type='time' id='time' onChange={this.handleChange} value={this.state.time} required/>
@@ -91,8 +94,14 @@ class CreateRide extends React.Component {
         <input type='' id='invitees' onChange={this.handleChange} value={this.state.invitees} required/>
 
         <ButtonDiv>
-          <Button type='button' size='small' variant='contained' color='secondary' onClick={this.clearForm}>Clear</Button>
-          <Button type='submit' size='small' variant= 'contained' color='primary'>Send Invite</Button>
+          <Grid container spacing={2}>
+            <Grid item>
+              <Button type='button' size='small' variant='contained' color='secondary' onClick={this.clearForm}>Clear</Button>
+            </Grid>
+            <Grid item>
+              <Button type='submit' size='small' variant= 'contained' color='primary'>Send Invite</Button>
+            </Grid>
+          </Grid>
         </ButtonDiv>
       </Form>
     )

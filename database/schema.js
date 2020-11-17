@@ -15,6 +15,10 @@ const rideSchema = new mongoose.Schema({
   seats: Number
 });
 
+const User = mongoose.model('User', userSchema);
 const Ride = mongoose.model('Ride', rideSchema);
 
-module.exports = Ride;
+module.exports = {
+  Ride: Ride,
+  User: User
+}
