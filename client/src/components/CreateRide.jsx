@@ -3,13 +3,14 @@ import moment from 'moment';
 import styled from 'styled-components';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
+
 
 class CreateRide extends React.Component {
   constructor(props) {
     super(props);
   
     this.state = {
+      driver: this.props.userInfo.userData.userID,
       destination: '',
       time: '',
       date: '',
@@ -43,6 +44,8 @@ class CreateRide extends React.Component {
       invitees: []
     });
   }
+
+  // TODO: method to query database based on invitee input (autocomplete should be used)
 
   handleChange(event) {
     if (event.target.id === 'invitees') {
@@ -79,7 +82,6 @@ class CreateRide extends React.Component {
       <Form onSubmit={this.handleSubmit} >
         <Label htmlFor='destination' >Destination</Label>
         <input type='text' id='destination' required={true} onChange={this.handleChange} value={this.state.destination} required/>
-        {/* <TextField id="standard-basic" id='destination' required onChange={this.handleChange} value={this.state.destination} label="Destination" /> */}
 
         <Label htmlFor='time' >Time</Label>
         <input type='time' id='time' onChange={this.handleChange} value={this.state.time} required/>

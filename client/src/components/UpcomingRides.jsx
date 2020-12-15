@@ -1,10 +1,9 @@
 import React from 'react';
 
-
 const UpcomingRides = () => {
   return (
     <div>
-      <h4>Just hi for now</h4>
+      <h4>You don't have any upcoming rides yet! Click the "Create Ride Invite" button to get started.</h4>
     </div>
   )
 }

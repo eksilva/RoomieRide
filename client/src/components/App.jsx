@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import styled from 'styled-components';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
@@ -19,13 +20,24 @@ export default class App extends Component {
   }
 
   onLogin(data) {
-    console.log(data);
     let userData = {
       userID: data.userID,
       name: data.name,
       email: data.email,
       picture: data.picture.data.url
     }
+    //TODO: check for existing user, post to users if new
+    // axios.get(`http://localhost:3000/api/users`)
+    //   .then(res => {
+    //     console.log(res);
+    //   });
+    axios.post(`http://localhost:3000/api/users`, { userData })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
     this.setState({
       isLoggedIn: true,
       userInfo: userData
@@ -34,7 +46,7 @@ export default class App extends Component {
 
   render() {
     if (!this.state.isLoggedIn) {
-      return (
+      return (  
         <Centered>
           <H1>Roomie Ride</H1>
           <LoginButton onLogin={this.onLogin}/>
@@ -47,7 +59,7 @@ export default class App extends Component {
             <H1>Roomie Ride</H1>
             <Nav userInfo={this.state.userInfo} />
             <Switch>
-              <Route path='/CreateRide' component={CreateRide}/>
+              <Route path='/CreateRide' component={CreateRide} userInfo={this.state.userInfo}/>
               <Route path='/ViewRides' component={UpcomingRides}/>
             </Switch>
           </Centered>
@@ -65,11 +77,9 @@ const H1 = styled.p`
 const Centered = styled.div`
   font-family: '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif', '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"';
   color: white;
-  background-color: #391c7d;
-  box-shadow: 2px 2px 10px grey, 
-             -2px -2px 10px grey;
   display: grid;
   margin: auto;
   padding-bottom: 1%;
   place-items: center;
 `;
+
