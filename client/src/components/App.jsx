@@ -21,7 +21,7 @@ export default class App extends Component {
 
   onLogin(data) {
     let userData = {
-      fbID: data.fbID,
+      fbID: data.userID,
       name: data.name,
       email: data.email,
       picture: data.picture.data.url
@@ -42,7 +42,7 @@ export default class App extends Component {
     //   .catch(err => {
     //   console.log(err);
     //   })
-    
+    console.log(userData);
     this.setState({
       isLoggedIn: true,
       userInfo: userData
@@ -64,7 +64,10 @@ export default class App extends Component {
             <H1>Roomie Ride</H1>
             <Nav userInfo={this.state.userInfo} />
             <Switch>
-              <Route path='/CreateRide' component={CreateRide} userInfo={this.state.userInfo}/>
+                <Route path='/CreateRide' render={() => (
+                                                    <CreateRide userInfo={this.state.userInfo} />
+                                                  )}
+                  />
               <Route path='/ViewRides' component={UpcomingRides}/>
             </Switch>
           </Centered>

@@ -8,9 +8,9 @@ import Grid from '@material-ui/core/Grid';
 class CreateRide extends React.Component {
   constructor(props) {
     super(props);
-  
+    
     this.state = {
-      driver: this.props.userInfo.userData.fbID,
+      driver: this.props.userInfo.fbID,
       destination: '',
       time: '',
       date: '',
@@ -25,7 +25,7 @@ class CreateRide extends React.Component {
   componentDidMount() {
     let currentDate = moment().format('YYYY[-]MM[-]DD');
     let currentTime = moment().format('HH:mm');
-  
+    
     this.setState({
       time: currentTime,
       date: currentDate,
