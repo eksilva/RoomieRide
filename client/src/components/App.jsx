@@ -26,12 +26,12 @@ export default class App extends Component {
       email: data.email,
       picture: data.picture.data.url
     }
-    //TODO: check for existing user, post to users if new
+    //TODO: check for existing user; post to db if new, update (put) if existing in case of prof pic update, name change, etc
     // axios.get(`http://localhost:3000/api/users`)
     //   .then(res => {
     //     console.log(res);
     //   });
-    axios.post(`http://localhost:3000/api/users`, { userData })
+    axios.post(`http://localhost:3000/api/users/add`, { userData })
       .then((response) => {
         console.log(response);
       })
