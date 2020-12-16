@@ -21,7 +21,7 @@ export default class App extends Component {
 
   onLogin(data) {
     let userData = {
-      userID: data.userID,
+      fbID: data.fbID,
       name: data.name,
       email: data.email,
       picture: data.picture.data.url
@@ -30,14 +30,19 @@ export default class App extends Component {
     // axios.get(`http://localhost:3000/api/users`)
     //   .then(res => {
     //     console.log(res);
-    //   });
-    axios.post(`http://localhost:3000/api/users/add`, { userData })
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    //     logic for post|put
+          // axios.post(`http://localhost:3000/api/users/add`, { userData })
+          //   .then((response) => {
+          //     console.log(response);
+          //   })
+          //   .catch((error) => {
+          //     console.log(error);
+          //   });
+    //   })
+    //   .catch(err => {
+    //   console.log(err);
+    //   })
+    
     this.setState({
       isLoggedIn: true,
       userInfo: userData

@@ -8,10 +8,10 @@ router.route('/').get((req,res) => {
 })
 
 router.route('/add').post((req,res) => {
-  const { userID, name, email, picture } = req.body;
+  const { fbID, name, email, picture } = req.body;
 
   const newUser = new User({
-    userID, 
+    fbID, 
     name, 
     email, 
     picture

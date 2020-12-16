@@ -10,7 +10,7 @@ class CreateRide extends React.Component {
     super(props);
   
     this.state = {
-      driver: this.props.userInfo.userData.userID,
+      driver: this.props.userInfo.userData.fbID,
       destination: '',
       time: '',
       date: '',
