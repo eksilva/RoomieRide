@@ -2,6 +2,9 @@ const router = require('express').Router();
 let Ride = require('../models/ride.model');
 
 router.route('/').get((req,res) => {
+
+  // TODO: write find function to find rides relevant to logged in user, e.g. where driver = [driver's userID] || where riders includes [driver's userID]
+  
   Ride.find()
     .then(rides => res.json(rides))
     .catch(err => res.status(400).json('Error:' + err));

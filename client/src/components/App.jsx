@@ -81,7 +81,7 @@ export default class App extends Component {
 }
 
 const H1 = styled.p`
-  font-size: 3em;
+  font-size: 4em;
   font-weight: bold;
 `;
 
