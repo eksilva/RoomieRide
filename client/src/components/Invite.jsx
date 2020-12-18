@@ -10,7 +10,7 @@ const Invite = (props) => {
       <p>{props.rideData.date}  {props.rideData.time}</p>
       <p>Spots Remaining: {props.rideData.seats}</p>
       <div>
-        <Button type='button' size='small' variant='contained' color='primary' onClick={() => {console.log('Edit Button Clicked')}}>Edit Ride</Button> <Button type='button' size='small' variant='contained' color='secondary' onClick={() => {console.log('Drop Button Clicked')}}>Drop Ride</Button>
+        <Button type='button' size='small' variant='contained' color='secondary' onClick={() => {console.log('Drop Button Clicked')}}>Drop Ride</Button> <Button type='button' size='small' variant='contained' color='primary' onClick={() => {console.log('Edit Button Clicked')}}>Edit Ride</Button>
       </div>
     </Card>
   )
