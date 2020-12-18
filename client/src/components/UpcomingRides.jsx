@@ -1,11 +1,18 @@
 import React from 'react';
+import styled from 'styled-components';
 
-const ViewRides = () => {
+import Invite from './Invite.jsx';
+
+const ViewRides = (props) => {
   return (
     <div>
-      <h4>You don't have any upcoming rides yet! Click the "Create Ride Invite" button to get started.</h4>
+      <Invite />
+      <Invite />
+      <Invite />
     </div>
   )
 }
+
+
 
 export default ViewRides;

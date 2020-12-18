@@ -64,11 +64,14 @@ export default class App extends Component {
             <H1>Roomie Ride</H1>
             <Nav userInfo={this.state.userInfo} />
             <Switch>
-                <Route path='/CreateRide' render={() => (
-                                                    <CreateRide userInfo={this.state.userInfo} />
-                                                  )}
+              <Route path='/CreateRide' render={() => (
+                                                  <CreateRide userInfo={this.state.userInfo} />
+                                                )}
                   />
-              <Route path='/ViewRides' component={UpcomingRides}/>
+              <Route path='/ViewRides' render={() => (
+                                                  <UpcomingRides userInfo={this.state.userInfo} />
+                                                )}
+                  />
             </Switch>
           </Centered>
         </Router>
