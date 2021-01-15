@@ -18,14 +18,13 @@ const Invite = (props) => {
 
 const Card = styled.div`
   border-radius: 40px;
-  background: #391c7d;
-  box-shadow:  -10px -10px 27px #201047, 
-             10px 10px 27px #5228b3; 
+  background: #d6d3cb;
+  box-shadow:  -10px -10px 27px grey,  
   padding-left: 2em;
   padding-top: 1em;
   padding-bottom: 1em;
   color: white;
-  width: 300px;
+  width: 400px;
   margin: 1.5em;
 `;
 

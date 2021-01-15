@@ -16,7 +16,7 @@ const Index = () => {
 }
 
 const Content = styled.div`
-  background-color: #391c7d;
+
 `;
 
 export default Index;

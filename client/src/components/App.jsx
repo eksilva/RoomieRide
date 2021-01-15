@@ -86,8 +86,8 @@ const H1 = styled.p`
 `;
 
 const Centered = styled.div`
-  font-family: '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif', '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"';
-  color: white;
+  font-family: 'Nunito', sans-serif;
+  color: #2e4685;
   display: grid;
   margin: auto;
   padding-bottom: 1%;
