@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import styled from 'styled-components';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import LoginButton from './LoginButton.jsx';
@@ -52,16 +51,16 @@ export default class App extends Component {
   render() {
     if (!this.state.isLoggedIn) {
       return (  
-        <Centered>
-          <H1>Roomie Ride</H1>
+        <div className="main-app">
+          <h1>Roomie Ride</h1>
           <LoginButton onLogin={this.onLogin}/>
-        </Centered>
+        </div>
       )
     } else {
       return (
         <Router>
-          <Centered>
-            <H1>Roomie Ride</H1>
+          <div className="main-app">
+            <h1>Roomie Ride</h1>
             <Nav userInfo={this.state.userInfo} />
             <Switch>
               <Route path='/CreateRide' render={() => (
@@ -73,24 +72,10 @@ export default class App extends Component {
                                                 )}
                   />
             </Switch>
-          </Centered>
+          </div>
         </Router>
       )
     }
   }
 }
-
-const H1 = styled.p`
-  font-size: 4em;
-  font-weight: bold;
-`;
-
-const Centered = styled.div`
-  font-family: 'Nunito', sans-serif;
-  color: #2e4685;
-  display: grid;
-  margin: auto;
-  padding-bottom: 1%;
-  place-items: center;
-`;
 

@@ -8,16 +8,13 @@ import App from './components/App.jsx';
 const Index = () => {
   
   return (
-    <Content>
-      <App />
-    </Content>
+    
+    <App />
+
   )
   
 }
 
-const Content = styled.div`
-
-`;
 
 export default Index;
 
