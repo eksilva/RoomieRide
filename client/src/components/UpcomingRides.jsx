@@ -27,7 +27,7 @@ const ViewRides = (props) => {
   const rides = rideData.map((obj) => <Invite key={Math.random()+1} rideData={obj} />);
 
   return (
-    <div>
+    <div className="upcoming-rides">
       {rides}
     </div>
   )

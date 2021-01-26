@@ -1,19 +1,19 @@
 import React from 'react';
-import styled from 'styled-components';
-
-import Button from '@material-ui/core/Button';
+import { GiSteeringWheel, GiAlarmClock } from 'react-icons/gi';
+import { MdEventSeat } from 'react-icons/md';
 
 const Invite = (props) => {
   return (
     <div className="invite-card">
       <div className="card-info">
         <div className="card-destination">{props.rideData.destination}</div>
-        <div className="card-driver">({props.rideData.driver})</div>
-        <p>{props.rideData.date}  {props.rideData.time}</p>
-        <p>Spots Remaining: {props.rideData.seats}</p>
+        <div className="card-info-other"><GiSteeringWheel className="react-icon"/> ({props.rideData.driver})</div>
+        <p className="card-info-other"><GiAlarmClock className="react-icon"/> {props.rideData.date}  {props.rideData.time}</p>
+        <p className="card-info-other"><MdEventSeat className="react-icon"/> {props.rideData.seats} Spot(s) Remaining</p>
       </div>
       <div className="card-buttons">
-        <Button type='button' size='small' variant='contained' color='secondary' onClick={() => {console.log('Drop Button Clicked')}}>Drop Ride</Button> <Button type='button' size='small' variant='contained' color='primary' onClick={() => {console.log('Edit Button Clicked')}}>Edit Ride</Button>
+        <button className="small-button edit-ride-button" onClick={() => {console.log('Edit Button Clicked')}}>Edit Ride</button>
+        <button className="small-button drop-ride-button" onClick={() => {console.log('Drop Button Clicked')}}>Drop Ride</button>
       </div>
     </div>
   )

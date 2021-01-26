@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Fab from '@material-ui/core/Fab';
+
 import Grid from '@material-ui/core/Grid'
 import styled from 'styled-components';
 
@@ -20,7 +20,6 @@ const Nav = (props) => {
             <Link to='/ViewRides'>
               <button className="big-button">View Upcoming Rides</button>
             </Link>
-          
           </Grid>
         </Grid>
       </nav>

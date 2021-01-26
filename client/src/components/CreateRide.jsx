@@ -98,10 +98,10 @@ class CreateRide extends React.Component {
         <ButtonDiv>
           <Grid container spacing={2}>
             <Grid item>
-              <Button type='button' size='small' variant='contained' color='secondary' onClick={this.clearForm}>Clear</Button>
+            <button className="small-button drop-ride-button" onClick={() => {this.clearForm}}>Clear Form</button>
             </Grid>
             <Grid item>
-              <Button type='submit' size='small' variant= 'contained' color='primary'>Send Invite</Button>
+              <button className="small-button edit-ride-button" onClick={() => {console.log('Send Invite Button Clicked')}}>Send Invite</button>
             </Grid>
           </Grid>
         </ButtonDiv>
