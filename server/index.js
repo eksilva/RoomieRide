@@ -15,7 +15,7 @@ app.use(cors());
 app.use(express.json());
 
 const mongoUri = process.env.MONGOURI;
-mongoose.connect(mongoUri, { useNewUrlParser: true, useCreateIndex: true });
+mongoose.connect(mongoUri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
 
 const connection = mongoose.connection;
 
